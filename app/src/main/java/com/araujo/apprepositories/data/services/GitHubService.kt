@@ -1,5 +1,6 @@
-package com.araujo.apprepositories.data.di.services
+package com.araujo.apprepositories.data.services
 
+import com.araujo.apprepositories.data.model.Repo
 import retrofit2.http.GET
 import retrofit2.http.Path
 

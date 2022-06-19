@@ -1,7 +1,9 @@
 package com.araujo.apprepositories.data.di
 
 import android.util.Log
-import com.araujo.apprepositories.data.di.services.GitHubService
+import com.araujo.apprepositories.data.repositories.RepoRepository
+import com.araujo.apprepositories.data.repositories.RepoRepositoryImpl
+import com.araujo.apprepositories.data.services.GitHubService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +17,7 @@ object DataModule {
     const val OK_HTTP = "OkHttp"
 
     fun load(){
-        loadKoinModules(networkModules())
+        loadKoinModules(networkModules() + repositoriesModule())
     }
 
     private fun networkModules(): Module {
@@ -40,6 +42,12 @@ object DataModule {
             }
         }
 
+    }
+
+    private fun repositoriesModule(): Module{
+        return module {
+            single<RepoRepository> { RepoRepositoryImpl(get()) }
+        }
     }
 
     private inline fun <reified T> createService(client : OkHttpClient, factory: GsonConverterFactory): T{
