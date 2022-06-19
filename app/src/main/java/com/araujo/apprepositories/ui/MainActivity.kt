@@ -1,10 +1,11 @@
-package com.araujo.apprepositories
+package com.araujo.apprepositories.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
+import com.araujo.apprepositories.R
 import com.araujo.apprepositories.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
