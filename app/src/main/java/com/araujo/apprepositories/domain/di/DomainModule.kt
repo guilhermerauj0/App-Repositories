@@ -1,6 +1,5 @@
 package com.araujo.apprepositories.domain.di
 
-import com.araujo.apprepositories.data.di.DataModule
 import com.araujo.apprepositories.domain.ListUserRepositoriesUseCase
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module

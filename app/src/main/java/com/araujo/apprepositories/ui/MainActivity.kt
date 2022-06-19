@@ -7,14 +7,23 @@ import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import com.araujo.apprepositories.R
 import com.araujo.apprepositories.databinding.ActivityMainBinding
+import com.araujo.apprepositories.presentation.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
+    private val viewModel by viewModel<MainViewModel>()
     private val binding by lazy{ ActivityMainBinding.inflate(layoutInflater)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        viewModel.repos.observe(this){
+
+        }
     }
 
     // OPTIONS DE PESQUISA
